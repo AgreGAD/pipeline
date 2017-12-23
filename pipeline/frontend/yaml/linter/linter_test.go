@@ -3,7 +3,7 @@ package linter
 import (
 	"testing"
 
-	"github.com/cncd/pipeline/pipeline/frontend/yaml"
+	"github.com/AgreGAD/pipeline/pipeline/frontend/yaml"
 )
 
 func TestLint(t *testing.T) {

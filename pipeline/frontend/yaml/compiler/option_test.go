@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/cncd/pipeline/pipeline/frontend"
+	"github.com/AgreGAD/pipeline/pipeline/frontend"
 )
 
 func TestWithWorkspace(t *testing.T) {

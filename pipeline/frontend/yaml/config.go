@@ -28,6 +28,7 @@ type (
 	Workspace struct {
 		Base string
 		Path string
+		Prefix string
 	}
 )
 

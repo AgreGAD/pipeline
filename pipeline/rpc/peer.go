@@ -3,7 +3,7 @@ package rpc
 import (
 	"context"
 
-	"github.com/cncd/pipeline/pipeline/backend"
+	"github.com/AgreGAD/pipeline/pipeline/backend"
 )
 
 // ErrCancelled signals the pipeine is cancelled.

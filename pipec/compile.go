@@ -8,9 +8,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/cncd/pipeline/pipeline/frontend"
-	"github.com/cncd/pipeline/pipeline/frontend/yaml"
-	"github.com/cncd/pipeline/pipeline/frontend/yaml/compiler"
+	"github.com/AgreGAD/pipeline/pipeline/frontend"
+	"github.com/AgreGAD/pipeline/pipeline/frontend/yaml"
+	"github.com/AgreGAD/pipeline/pipeline/frontend/yaml/compiler"
 
 	"github.com/urfave/cli"
 )

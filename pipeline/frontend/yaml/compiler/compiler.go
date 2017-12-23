@@ -2,10 +2,11 @@ package compiler
 
 import (
 	"fmt"
+	"math/rand"
 
-	"github.com/cncd/pipeline/pipeline/backend"
-	"github.com/cncd/pipeline/pipeline/frontend"
-	"github.com/cncd/pipeline/pipeline/frontend/yaml"
+	"github.com/AgreGAD/pipeline/pipeline/backend"
+	"github.com/AgreGAD/pipeline/pipeline/frontend"
+	"github.com/AgreGAD/pipeline/pipeline/frontend/yaml"
 )
 
 // TODO(bradrydzewski) compiler should handle user-defined volumes from YAML
@@ -68,6 +69,28 @@ func New(opts ...Option) *Compiler {
 func (c *Compiler) Compile(conf *yaml.Config) *backend.Config {
 	config := new(backend.Config)
 
+	// overrides the default workspace paths when specified
+	// in the YAML file.
+	if len(conf.Workspace.Prefix) != 0 {
+		c.prefix = fmt.Sprintf(
+			"%s_%s",
+			c.prefix,
+			conf.Workspace.Prefix,
+		)
+	} else {
+		c.prefix = fmt.Sprintf(
+			"%s_%d",
+			c.prefix,
+			rand.Int(),
+		)
+	}
+	if len(conf.Workspace.Base) != 0 {
+		c.base = conf.Workspace.Base
+	}
+	if len(conf.Workspace.Path) != 0 {
+		c.path = conf.Workspace.Path
+	}
+
 	// create a default volume
 	config.Volumes = append(config.Volumes, &backend.Volume{
 		Name:   fmt.Sprintf("%s_default", c.prefix),
@@ -79,15 +102,6 @@ func (c *Compiler) Compile(conf *yaml.Config) *backend.Config {
 		Name:   fmt.Sprintf("%s_default", c.prefix),
 		Driver: "bridge",
 	})
-
-	// overrides the default workspace paths when specified
-	// in the YAML file.
-	if len(conf.Workspace.Base) != 0 {
-		c.base = conf.Workspace.Base
-	}
-	if len(conf.Workspace.Path) != 0 {
-		c.path = conf.Workspace.Path
-	}
 
 	// add default clone step
 	if c.local == false && len(conf.Clone.Containers) == 0 {

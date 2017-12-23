@@ -21,6 +21,7 @@ func xTestParse(t *testing.T) {
 
 				g.Assert(out.Workspace.Base).Equal("/go")
 				g.Assert(out.Workspace.Path).Equal("src/github.com/octocat/hello-world")
+				g.Assert(out.Workspace.Prefix).Equal("abc")
 				g.Assert(out.Volumes.Volumes[0].Name).Equal("custom")
 				g.Assert(out.Volumes.Volumes[0].Driver).Equal("blockbridge")
 				g.Assert(out.Networks.Networks[0].Name).Equal("custom")
@@ -64,6 +65,7 @@ build:
 workspace:
   path: src/github.com/octocat/hello-world
   base: /go
+  prefix: abc
 pipeline:
   test:
     image: golang

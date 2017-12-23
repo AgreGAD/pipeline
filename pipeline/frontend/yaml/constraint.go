@@ -3,8 +3,8 @@ package yaml
 import (
 	"path/filepath"
 
-	"github.com/cncd/pipeline/pipeline/frontend"
-	"github.com/cncd/pipeline/pipeline/frontend/yaml/types"
+	"github.com/AgreGAD/pipeline/pipeline/frontend"
+	"github.com/AgreGAD/pipeline/pipeline/frontend/yaml/types"
 	libcompose "github.com/docker/libcompose/yaml"
 )
 

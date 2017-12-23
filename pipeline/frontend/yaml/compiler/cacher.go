@@ -4,7 +4,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/cncd/pipeline/pipeline/frontend/yaml"
+	"github.com/AgreGAD/pipeline/pipeline/frontend/yaml"
 
 	libcompose "github.com/docker/libcompose/yaml"
 )

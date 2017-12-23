@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/cncd/pipeline/pipeline/backend"
-	"github.com/cncd/pipeline/pipeline/rpc/proto"
+	"github.com/AgreGAD/pipeline/pipeline/backend"
+	"github.com/AgreGAD/pipeline/pipeline/rpc/proto"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
